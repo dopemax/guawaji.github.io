@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hexo搭建博客]]></title>
+    <url>%2F2017%2F12%2F04%2Fuse-hexo%2F</url>
+    <content type="text"><![CDATA[概述 Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 碰到的问题网上已经有许多相关的入门教程，推荐查看官方文档。我在使用Hexo搭建博客的过程中，遇到了一些问题，记录如下： 在另一台电脑如何同步Hexo站点配置，同步博客内容 解决办法初次使用GitHub、Hexo： 安装Node.js、Git git添加ssh key 创建仓库(名为username.github.io)，设置Github Pages，创建两个分支source，master source：这个分支保存站点相关配置，设置为默认分支 master：这个分支用来发布博客静态页面(User and Organization Pages只能通过master分支发布) 安装hexo：npm install hexo-cli -g 初始化配置文件、扩展包：hexo init xxx（创建一个名为xxx的Hexo站点文件夹，并进行初始化配置） 进入Hexo站点文件夹：cd xxx 下载扩展包（与package.json同步）：npm install 安装其它Hexo扩展包 使用hexo d来部署到git上，npm install hexo-deployer-git --save 建立RSS订阅，npm install hexo-generator-feed --save 建立站点地图，npm install hexo-generator-sitemap --save 本地搜索（Next主题），npm install hexo-generator-searchdb --save 进行站点配置，打开_config.yml文件 1234deploy: type: git repo: xxx branch: master 清除缓存：hexo clean 生成文件：hexo g 本地预览：hexo s 部署到git：hexo d 如果换了电脑：（不需要hexo init，初始化配置会覆盖掉之前的站点配置，扩展包）1->2->4->5、在你喜欢的路径下clone source分支6、进入Hexo站点文件夹：cd xxx7->10->11… 如果hexo g时发生如下错误： 原因可能是： in _posts ,if there is no file , it will cause this error .]]></content>
+  </entry>
+</search>

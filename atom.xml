@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>heyvigo</title>
+  
+  <subtitle>here we go</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://heyvigo.github.io/"/>
+  <updated>2018-04-28T09:26:36.592Z</updated>
+  <id>https://heyvigo.github.io/</id>
+  
+  <author>
+    <name>heyvigo</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo搭建博客</title>
+    <link href="https://heyvigo.github.io/2017/12/04/use-hexo/"/>
+    <id>https://heyvigo.github.io/2017/12/04/use-hexo/</id>
+    <published>2017-12-04T08:49:49.000Z</published>
+    <updated>2018-04-28T09:26:36.592Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p></blockquote><h1 id="碰到的问题"><a href="#碰到的问题" class="headerlink" title="碰到的问题"></a>碰到的问题</h1><p>网上已经有许多相关的入门教程，推荐查看<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">官方文档</a>。我在使用Hexo搭建博客的过程中，遇到了一些问题，记录如下：</p><ul><li>在另一台电脑如何同步Hexo站点配置，同步博客内容</li></ul><h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><h3 id="初次使用GitHub、Hexo："><a href="#初次使用GitHub、Hexo：" class="headerlink" title="初次使用GitHub、Hexo："></a>初次使用GitHub、Hexo：</h3><ol><li>安装Node.js、Git</li><li>git添加ssh key</li><li>创建仓库(名为username.github.io)，设置Github Pages，创建两个分支source，master<ul><li>source：这个分支保存站点相关配置，设置为默认分支</li><li>master：这个分支用来发布博客静态页面(User and Organization Pages只能通过master分支发布)</li></ul></li><li>安装hexo：<code>npm install hexo-cli -g</code></li><li>初始化配置文件、扩展包：<code>hexo init xxx</code>（创建一个名为xxx的Hexo站点文件夹，并进行初始化配置）</li><li>进入Hexo站点文件夹：<code>cd xxx</code></li><li>下载扩展包（与package.json同步）：<code>npm install</code></li><li>安装其它Hexo扩展包<ul><li>使用hexo d来部署到git上，<code>npm install hexo-deployer-git --save</code></li><li>建立RSS订阅，<code>npm install hexo-generator-feed --save</code></li><li>建立站点地图，<code>npm install hexo-generator-sitemap --save</code></li><li>本地搜索（Next主题），<code>npm install hexo-generator-searchdb --save</code></li></ul></li><li><p>进行站点配置，打开_config.yml文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: xxx</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li><li><p>清除缓存：<code>hexo clean</code></p></li><li>生成文件：<code>hexo g</code></li><li>本地预览：<code>hexo s</code></li><li>部署到git：<code>hexo d</code></li></ol><h3 id="如果换了电脑：（不需要hexo-init，初始化配置会覆盖掉之前的站点配置，扩展包）"><a href="#如果换了电脑：（不需要hexo-init，初始化配置会覆盖掉之前的站点配置，扩展包）" class="headerlink" title="如果换了电脑：（不需要hexo init，初始化配置会覆盖掉之前的站点配置，扩展包）"></a>如果换了电脑：（不需要hexo init，初始化配置会覆盖掉之前的站点配置，扩展包）</h3><p>1->2->4-><br>5、在你喜欢的路径下<strong>clone</strong> source分支<br>6、进入Hexo站点文件夹：<code>cd xxx</code><br>7->10->11…</p><p>如果<code>hexo g</code>时发生如下错误：</p><p><img src="/var/folders/lg/bl0xj7p513j9pbtw1dxfjwlc0000gn/T/abnerworks.Typora/image-20180428172240052.png" alt="image-20180428172240052"></p><p>原因可能是：</p><blockquote><p>in _posts ,if there is no file , it will cause this error .</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
