@@ -81,19 +81,21 @@
 
 
 
-<meta name="description" content="概述 Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。  网上已经有许多相关的教程，推荐查看官方文档。 如果需要在另一台电脑同步Hexo站点配置，同步博客内容： 安装Node.js、Git git添加ssh key 创建仓库(名为username.github.io)，设置Github Pages，创">
+<meta name="description" content="使用 fastlane 进行 iOS App自动打包前言公司 App工厂 项目每天要进行10来次打包分发测试，并且要根据要求按环境、配置进行打包。如果使用手动的方式，不仅效率低，还容易配置出错，对于开发人员来说相当折磨。 Xcodebuild 是一个命令行打包命令，配合脚本使用可以实现简单的打包分发流程，可是不方便更改项目内的一些配置和灵活管理开发者中心的 Certificates 、 Ident">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建博客">
-<meta property="og:url" content="https://guawaji.github.io/2017/12/04/2017-12-04-use-hexo/index.html">
+<meta property="og:title" content="使用 fastlane 进行 iOS App自动打包">
+<meta property="og:url" content="https://guawaji.github.io/2018/06/27/use-fastlane/index.html">
 <meta property="og:site_name" content="guawaji">
-<meta property="og:description" content="概述 Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。  网上已经有许多相关的教程，推荐查看官方文档。 如果需要在另一台电脑同步Hexo站点配置，同步博客内容： 安装Node.js、Git git添加ssh key 创建仓库(名为username.github.io)，设置Github Pages，创">
+<meta property="og:description" content="使用 fastlane 进行 iOS App自动打包前言公司 App工厂 项目每天要进行10来次打包分发测试，并且要根据要求按环境、配置进行打包。如果使用手动的方式，不仅效率低，还容易配置出错，对于开发人员来说相当折磨。 Xcodebuild 是一个命令行打包命令，配合脚本使用可以实现简单的打包分发流程，可是不方便更改项目内的一些配置和灵活管理开发者中心的 Certificates 、 Ident">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://guawaji.github.io/var/folders/lg/bl0xj7p513j9pbtw1dxfjwlc0000gn/T/abnerworks.Typora/image-20180428172240052.png">
-<meta property="og:updated_time" content="2019-02-28T14:19:55.520Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1057499-ab46faf34a41f96f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1057499-ee44c8318c9ed449.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1057499-e418b8812a8a4ff6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-03-03T04:08:16.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建博客">
-<meta name="twitter:description" content="概述 Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。  网上已经有许多相关的教程，推荐查看官方文档。 如果需要在另一台电脑同步Hexo站点配置，同步博客内容： 安装Node.js、Git git添加ssh key 创建仓库(名为username.github.io)，设置Github Pages，创">
-<meta name="twitter:image" content="https://guawaji.github.io/var/folders/lg/bl0xj7p513j9pbtw1dxfjwlc0000gn/T/abnerworks.Typora/image-20180428172240052.png">
+<meta name="twitter:title" content="使用 fastlane 进行 iOS App自动打包">
+<meta name="twitter:description" content="使用 fastlane 进行 iOS App自动打包前言公司 App工厂 项目每天要进行10来次打包分发测试，并且要根据要求按环境、配置进行打包。如果使用手动的方式，不仅效率低，还容易配置出错，对于开发人员来说相当折磨。 Xcodebuild 是一个命令行打包命令，配合脚本使用可以实现简单的打包分发流程，可是不方便更改项目内的一些配置和灵活管理开发者中心的 Certificates 、 Ident">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1057499-ab46faf34a41f96f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -123,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://guawaji.github.io/2017/12/04/2017-12-04-use-hexo/"/>
+  <link rel="canonical" href="https://guawaji.github.io/2018/06/27/use-fastlane/"/>
 
 
 
 
 
-  <title>Hexo搭建博客 | guawaji</title>
+  <title>使用 fastlane 进行 iOS App自动打包 | guawaji</title>
   
 
 
@@ -290,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://guawaji.github.io/2017/12/04/2017-12-04-use-hexo/">
+    <link itemprop="mainEntityOfPage" href="https://guawaji.github.io/2018/06/27/use-fastlane/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="guawaji">
@@ -307,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo搭建博客</h1>
+          <h1 class="post-title" itemprop="name headline">使用 fastlane 进行 iOS App自动打包</h1>
         
 
         <div class="post-meta">
@@ -319,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T16:49:49+08:00">
-                2017-12-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T19:05:20+08:00">
+                2018-06-27
               </time>
             
 
@@ -338,9 +340,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/04/2017-12-04-use-hexo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/27/use-fastlane/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/04/2017-12-04-use-hexo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/27/use-fastlane/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -368,45 +370,106 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+        <h1 id="使用-fastlane-进行-iOS-App自动打包"><a href="#使用-fastlane-进行-iOS-App自动打包" class="headerlink" title="使用 fastlane 进行 iOS App自动打包"></a>使用 fastlane 进行 iOS App自动打包</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>公司 App工厂 项目每天要进行10来次打包分发测试，并且要根据要求按环境、配置进行打包。如果使用手动的方式，不仅效率低，还容易配置出错，对于开发人员来说相当折磨。</p>
+<p><code>Xcodebuild</code> 是一个命令行打包命令，配合脚本使用可以实现简单的打包分发流程，可是不方便更改项目内的一些配置和灵活管理开发者中心的 <code>Certificates</code> 、 <code>Identifiers</code> 、 <code>Provisioning Profiles</code>  。</p>
+<p><code>Fastlane</code> 不仅可以更快的打包，还能够帮助开发者团队管理证书，生成 <code>App ID</code> 、 <code>Provisioning Profile</code> ，生成应用截图，处理代码签名，甚至提交审核。</p>
+<p>接下来记录一下我使用 <code>fastlane</code> 时碰到的一些问题。</p>
+<h3 id="使用-fastlane"><a href="#使用-fastlane" class="headerlink" title="使用 fastlane"></a>使用 fastlane</h3><h5 id="首先安装fastlane"><a href="#首先安装fastlane" class="headerlink" title="首先安装fastlane"></a>首先安装fastlane</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[sudo] gem install fastlane -NV</span><br></pre></td></tr></table></figure>
+<h5 id="加载-env文件里的环境变量，使用-dotenv-——-A-Ruby-gem-to-load-environment-variables-from-env"><a href="#加载-env文件里的环境变量，使用-dotenv-——-A-Ruby-gem-to-load-environment-variables-from-env" class="headerlink" title="加载.env文件里的环境变量，使用 dotenv —— A Ruby gem to load environment variables from .env."></a>加载.env文件里的环境变量，使用 <a href="https://github.com/bkeepers/dotenv" target="_blank" rel="noopener">dotenv</a> —— A Ruby gem to load environment variables from <code>.env</code>.</h5><p>Add this line to the top of your application’s Gemfile:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem &apos;dotenv-rails&apos;, groups: [:development, :test]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bundle</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install dotenv</span><br></pre></td></tr></table></figure>
+<h5 id="使用-update-info-plist"><a href="#使用-update-info-plist" class="headerlink" title="使用 update_info_plist"></a>使用 update_info_plist</h5><blockquote>
+<p>error: You must specify either a plist path or a scheme</p>
 </blockquote>
-<p>网上已经有许多相关的教程，推荐查看<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">官方文档</a>。</p>
-<h3 id="如果需要在另一台电脑同步Hexo站点配置，同步博客内容："><a href="#如果需要在另一台电脑同步Hexo站点配置，同步博客内容：" class="headerlink" title="如果需要在另一台电脑同步Hexo站点配置，同步博客内容："></a>如果需要在另一台电脑同步Hexo站点配置，同步博客内容：</h3><ol>
-<li>安装Node.js、Git</li>
-<li>git添加ssh key</li>
-<li>创建仓库(名为username.github.io)，设置Github Pages，创建两个分支source，master<ul>
-<li>source：这个分支保存站点相关配置，设置为默认分支</li>
-<li>master：这个分支用来发布博客静态页面(User and Organization Pages只能通过master分支发布)</li>
-</ul>
-</li>
-<li>安装hexo：<code>npm install hexo-cli -g</code></li>
-<li>初始化配置文件、扩展包：<code>hexo init xxx</code>（创建一个名为xxx的Hexo站点文件夹，并进行初始化配置）</li>
-<li>进入Hexo站点文件夹：<code>cd xxx</code></li>
-<li>下载扩展包（与package.json同步）：<code>npm install</code></li>
-<li>安装其它Hexo扩展包<ul>
-<li>使用hexo d来部署到git上，<code>npm install hexo-deployer-git --save</code></li>
-<li>建立RSS订阅，<code>npm install hexo-generator-feed --save</code></li>
-<li>建立站点地图，<code>npm install hexo-generator-sitemap --save</code></li>
-<li>本地搜索（Next主题），<code>npm install hexo-generator-searchdb --save</code></li>
-</ul>
-</li>
-<li><p>进行站点配置，打开_config.yml文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: xxx</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>清除缓存：<code>hexo clean</code></p>
-</li>
-<li>生成文件：<code>hexo g</code></li>
-<li>本地预览：<code>hexo s</code></li>
-<li>部署到git：<code>hexo d</code></li>
-</ol>
-<h3 id="如果换了电脑：（不需要hexo-init，初始化配置会覆盖掉之前的站点配置，扩展包）"><a href="#如果换了电脑：（不需要hexo-init，初始化配置会覆盖掉之前的站点配置，扩展包）" class="headerlink" title="如果换了电脑：（不需要hexo init，初始化配置会覆盖掉之前的站点配置，扩展包）"></a>如果换了电脑：（不需要hexo init，初始化配置会覆盖掉之前的站点配置，扩展包）</h3><p>1->2->4-><br>5、在你喜欢的路径下<strong>clone</strong> source分支<br>6、进入Hexo站点文件夹：<code>cd xxx</code><br>7->10->11…</p>
-<p>如果<code>hexo g</code>时发生如下错误：</p>
-<p><img src="/var/folders/lg/bl0xj7p513j9pbtw1dxfjwlc0000gn/T/abnerworks.Typora/image-20180428172240052.png" alt="image-20180428172240052"></p>
-<p>原因可能是没有文章：</p>
+<p>必须设置 plist path 或者 scheme ，然后就可以找到对应的 plist 文件更改CFBundleDisplayName，CFBundleShortVersionString之类的值了。</p>
+<p>注意：</p>
+<p>使用 <code>update_info_plist</code> 修改不了项目Bundle ID（一般info.plist文件里面<code>CFBundleIdentifier</code>的值是<code>$(PRODUCT_BUNDLE_IDENTIFIER)</code>），因为并不会修改<code>Build Settings</code>里<code>PRODUCT_BUNDLE_IDENTIFIER</code>的值。参考 <a href="https://github.com/fastlane/fastlane/issues/684" target="_blank" rel="noopener">issue</a>。</p>
+<h5 id="produce"><a href="#produce" class="headerlink" title="produce"></a>produce</h5><blockquote>
+<p>error: User <a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">foo@bar.com</a> doesn’t have enough permission for the following action: user_details_data</p>
+</blockquote>
+<p>出现这个错误是由于我用的开发者账号（企业账号）没有 <code>user_details_data</code> 的权限（应该是跟 <code>appstoreconnect</code> 相关），而参数 <code>skip_itc</code> 没有设为 <code>false</code> 。</p>
+<p>还有一个问题是：要想使用 <code>produce</code> 修改已经生成的App ID的 services ，目前produce cannot modify services with a lane，参考这个<a href="https://github.com/fastlane/fastlane/issues/8478" target="_blank" rel="noopener">issue</a>，可以改用命令行修改，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh &quot;fastlane produce enable_services --push_notification -a #&#123;bundle_id&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>去文档上查了一下发现有 <code>modify_services</code> 这个 action 可以修改，不过我没有去使用过。</p>
+<p>如果项目里有multiple targets (e.g. Today Widget or WatchOS Extension or Notification Extension)，也需要使用produce创建对应的App ID。然而我碰到过另一个问题：</p>
 <blockquote>
-<p>in _posts ,if there is no file , it will cause this error .</p>
+<p>An App ID with Identifier ‘com.foo.bar.push’ is not available. Please enter a different string</p>
 </blockquote>
+<p>这个错误应该是由于<code>com.foo.bar.push</code>这个Bundle ID被其它开发者账号用来创建了App ID，解决办法就是：</p>
+<ol>
+<li>改用另一个</li>
+<li>去那个开发者账号（如果你知道）删除对应的App ID。</li>
+</ol>
+<p>可是Xcode开启了自动签名却能生成有效的pp文件，我检查了一下pp文件，发现App ID名称是XC Wildcard，能匹配所有的Bundle ID。接下来我去查了一下资料，发现这是因为Extension的target不使用capabilities，当Xcode开启自动签名，fix issue时，可能会adding a wildcard team provisioning profile，</p>
+<blockquote>
+<p>Using a Wildcard App ID is convenient for all apps that do not use capabilities, as they can reuse the same provisioning profile for code signing</p>
+</blockquote>
+<h5 id="match"><a href="#match" class="headerlink" title="match"></a>match</h5><blockquote>
+<p>error: Could not create another Distribution certificate, reached the maximum number of available Distribution certificates.</p>
+</blockquote>
+<p>当开发者账户中已经有了最大数量的证书时，fastlane match不能创建新的证书，然而也不能使用本地 keychain 中可用的证书并推送到git仓库。</p>
+<p>这个 <a href="https://github.com/fastlane/fastlane/issues/12250" target="_blank" rel="noopener">issue</a> 就有人提到希望fastlane match可以使用本地可用的证书。</p>
+<blockquote>
+<p>There will be good to have build-in initializer to export all existing certificates to git repo.</p>
+<p>The steps are, for example, described here:<br><a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x68;&#116;&#x74;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#106;&#x6f;&#x6e;&#x61;&#116;&#x68;&#x61;&#x6e;&#99;&#x61;&#114;&#100;&#x6f;&#x73;&#x6f;&#47;&#x75;&#115;&#105;&#x6e;&#x67;&#x2d;&#x66;&#x61;&#x73;&#116;&#108;&#97;&#110;&#x65;&#x2d;&#x6d;&#x61;&#x74;&#99;&#104;&#45;&#119;&#x69;&#116;&#104;&#x2d;&#101;&#x78;&#105;&#x73;&#x74;&#x69;&#x6e;&#x67;&#45;&#99;&#101;&#114;&#116;&#105;&#x66;&#x69;&#x63;&#x61;&#116;&#101;&#x73;&#x2d;&#119;&#105;&#116;&#x68;&#111;&#x75;&#x74;&#45;&#x72;&#x65;&#118;&#x6f;&#107;&#105;&#110;&#x67;&#45;&#x74;&#104;&#x65;&#x6d;&#45;&#97;&#x33;&#x32;&#x35;&#x62;&#x65;&#x36;&#x39;&#100;&#x61;&#99;&#54;">&#x68;&#116;&#x74;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#106;&#x6f;&#x6e;&#x61;&#116;&#x68;&#x61;&#x6e;&#99;&#x61;&#114;&#100;&#x6f;&#x73;&#x6f;&#47;&#x75;&#115;&#105;&#x6e;&#x67;&#x2d;&#x66;&#x61;&#x73;&#116;&#108;&#97;&#110;&#x65;&#x2d;&#x6d;&#x61;&#x74;&#99;&#104;&#45;&#119;&#x69;&#116;&#104;&#x2d;&#101;&#x78;&#105;&#x73;&#x74;&#x69;&#x6e;&#x67;&#45;&#99;&#101;&#114;&#116;&#105;&#x66;&#x69;&#x63;&#x61;&#116;&#101;&#x73;&#x2d;&#119;&#105;&#116;&#x68;&#111;&#x75;&#x74;&#45;&#x72;&#x65;&#118;&#x6f;&#107;&#105;&#110;&#x67;&#45;&#x74;&#104;&#x65;&#x6d;&#45;&#97;&#x33;&#x32;&#x35;&#x62;&#x65;&#x36;&#x39;&#100;&#x61;&#99;&#54;</a></p>
+<p>Fastlane could just fetch all certificates using Spaceship to get their cert_ids, then extract all identities existing in keychain according to fetched list and then push everything to repo.</p>
+<p>I suppose it to be run once on a build node/developer mac/etc, and then everyone else could just use <code>fastlane match</code> to install all this certificates in a simple and easy way.</p>
+</blockquote>
+<p>当你需要在多个team之间切换时，注意切换分支。</p>
+<blockquote>
+<p><em>match</em> also supports storing certificates of multiple teams in one repo, by using separate git branches. If you work in multiple teams, make sure to set the <code>git_branch</code> parameter to a unique value per team. From there, <em>match</em> will automatically create and use the specified branch for you.</p>
+</blockquote>
+<p>环境变量<code>MATCH_PASSWORD</code>是你最开始使用match时创建的git仓库设置的权限密码。</p>
+<h5 id="gym"><a href="#gym" class="headerlink" title="gym"></a>gym</h5><p>这个 action 是进行 archive 和 export 的。</p>
+<p>archive 需要配置好对应的Bundle ID，Provisioning Profile（development）， developer 证书。</p>
+<p>export需要配置好method，Provisioning Profile（appstore, adhoc, enterprise）， distribution 证书。</p>
+<p>如果项目设置了 <code>Automatically manage signing</code>，gym会使用Xcode默认选择的pp文件，不会使用之前match下载的。这对于Bundle ID不会修改来发布企业包的项目来说没什么操心的，但是如果项目Bundle ID以前是<code>com.foo.bar1</code>，现在需要用新的<code>com.foo.bar2</code>来打包，那么archive得到的文件可能Bundle ID为<code>com.foo.bar2</code>，使用的pp文件却是Bundle ID为<code>com.foo.bar1</code>的。之后export（使用的pp文件是新生成的Bundle ID为<code>com.foo.bar2的</code>的）就会报错如下：</p>
+<blockquote>
+<p>error: exportArchive: Provisioning profile “match InHouse com.foo.bar2” doesn’t match the entitlements file’s value for the application-identifier entitlement.</p>
+</blockquote>
+<p>就是 archive 和 export 使用的 pp 文件Bundle ID不同。</p>
+<p>gym 虽然有 xcargs 这个参数可以配置 archive 时候的Provisioning Profile，可是项目如果有multiple targets (e.g. Today Widget or WatchOS Extension or Notification Extension)，这一个参数怎么给多个target配置pp文件。</p>
+<p>于是查看了很多issue之后，发现了<code>automatic_code_signing</code>这个action既可以关闭<code>Automatically manage signing</code>，又可以根据target来设置pp文件。</p>
+<p>做好了 archive 和 export 的签名匹配之后，gym打包就能成功了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-allowProvisioningUpdates  </span><br><span class="line">Allow xcodebuild to communicate with the Apple Developer website. </span><br><span class="line">For automatically signed targets, xcodebuild will create and update profiles, app IDs, and certificates. </span><br><span class="line">For manually signed targets, xcodebuild will download missing or updated provisioning profiles.</span><br><span class="line">Requires a developer account to have been added in Xcode&apos;s Accounts preference pane.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">According to xcodebuild -help, signingStyle defaults to automatic for apps that were automatically signed when archived (which is our case). I assume this is the reason xcodebuild seems to ignore the provisioningProfiles entry..</span><br></pre></td></tr></table></figure>
+<p>gym error:</p>
+<p>gym archive 的过程是根据Xcode中配置的Provisioning Profile（type是development，证书是开发者证书）来 archive 的，export 需要的Provisioning Profile（type是production，证书是发布证书），得注意检查这个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: exportArchive: &quot;PushSerives.appex&quot; requires a provisioning profile.</span><br></pre></td></tr></table></figure>
+<p>由于项目包含notification service extension，需要 provisioning profile ，所以先使用produce生成App ID，再使用match（其实是sign）生成 provisioning profile ，</p>
+<blockquote>
+<p>error: exportArchive: Provisioning profile “match InHouse com.sobeycloud.enterprise.test1” doesn’t support the Push Notifications capability.</p>
+<p>error: exportArchive: Provisioning profile “match InHouse com.sobeycloud.enterprise.test1” doesn’t include the aps-environment entitlement and doesn’t match the entitlements file’s value for the application-identifier entitlement.</p>
+<p>error: exportArchive: Provisioning profile “match InHouse com.sobeycloud.enterprise.test1.push” doesn’t match the entitlements file’s value for the application-identifier entitlement.</p>
+</blockquote>
+<h3 id="Jenkins-fastlane"><a href="#Jenkins-fastlane" class="headerlink" title="Jenkins+fastlane"></a>Jenkins+fastlane</h3><p>Error:</p>
+<blockquote>
+<p>fastlane:  command not found</p>
+<p>bundle: command not found</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/questions/10365792/cant-run-jenkins-build-bundle-command-not-found" target="_blank" rel="noopener">stackoverflow</a>上有解释，不过在使用全路径时，到后面可能又会碰到error:</p>
+<blockquote>
+<p>xcpretty: command not found  </p>
+</blockquote>
+<p>根据<a href="https://github.com/fastlane/fastlane/issues/12331" target="_blank" rel="noopener">issue</a>里的描述，可以在”构建”中的shell命令中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=&quot;/usr/local/bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Fatal: could not read Username for ‘<a href="https://foo.bar" target="_blank" rel="noopener">https://foo.bar</a>‘: terminal prompts disabled</p>
+</blockquote>
+<p>可参照：<a href="https://github.com/fastlane/fastlane/issues/7805" target="_blank" rel="noopener">issue</a></p>
+<blockquote>
+<p>As you probably know, since you can’t type in a password during your CI builds, <em>match</em> &amp; Git will have trouble using the <code>https</code> authentication method unless your build machine has its keychain set up with the right credentials for your repository.</p>
+<p>The error message you provided is letting you know that <em>match</em> could not determine the right password to use. It needed to prompt you, but on CI, it is not allowed to prompt because that would cause the build to hang.</p>
+<p>Our suggestion would be to investigate the Keychains and Provisioning Profiles Plugin mentioned</p>
+</blockquote>
+<p>Error: </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1057499-ab46faf34a41f96f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="jenkins-fastlane error">检查后发现证书和配置文件是下载到打包机器上了的，可是没有打开钥匙串访问权限，所以 CodeSign 失败。</p>
+<p>Success:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1057499-ee44c8318c9ed449.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="jenkins-fastlane success1"></p>
+<p>钉钉上的机器人提醒：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1057499-e418b8812a8a4ff6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="success2"></p>
 
       
     </div>
@@ -427,6 +490,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/07/RxSwfit+MVVM简单实践/" rel="next" title="RxSwfit+MVVM简单实践">
+                <i class="fa fa-chevron-left"></i> RxSwfit+MVVM简单实践
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
@@ -516,7 +595,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -576,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x6982;&#x8FF0;" class="headerlink" title="&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果需要在另一台电脑同步Hexo站点配置，同步博客内容："><span class="nav-number">1.0.1.</span> <span class="nav-text"><a href="#&#x5982;&#x679C;&#x9700;&#x8981;&#x5728;&#x53E6;&#x4E00;&#x53F0;&#x7535;&#x8111;&#x540C;&#x6B65;Hexo&#x7AD9;&#x70B9;&#x914D;&#x7F6E;&#xFF0C;&#x540C;&#x6B65;&#x535A;&#x5BA2;&#x5185;&#x5BB9;&#xFF1A;" class="headerlink" title="&#x5982;&#x679C;&#x9700;&#x8981;&#x5728;&#x53E6;&#x4E00;&#x53F0;&#x7535;&#x8111;&#x540C;&#x6B65;Hexo&#x7AD9;&#x70B9;&#x914D;&#x7F6E;&#xFF0C;&#x540C;&#x6B65;&#x535A;&#x5BA2;&#x5185;&#x5BB9;&#xFF1A;"></a>&#x5982;&#x679C;&#x9700;&#x8981;&#x5728;&#x53E6;&#x4E00;&#x53F0;&#x7535;&#x8111;&#x540C;&#x6B65;Hexo&#x7AD9;&#x70B9;&#x914D;&#x7F6E;&#xFF0C;&#x540C;&#x6B65;&#x535A;&#x5BA2;&#x5185;&#x5BB9;&#xFF1A;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果换了电脑：（不需要hexo-init，初始化配置会覆盖掉之前的站点配置，扩展包）"><span class="nav-number">1.0.2.</span> <span class="nav-text"><a href="#&#x5982;&#x679C;&#x6362;&#x4E86;&#x7535;&#x8111;&#xFF1A;&#xFF08;&#x4E0D;&#x9700;&#x8981;hexo-init&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;&#x4F1A;&#x8986;&#x76D6;&#x6389;&#x4E4B;&#x524D;&#x7684;&#x7AD9;&#x70B9;&#x914D;&#x7F6E;&#xFF0C;&#x6269;&#x5C55;&#x5305;&#xFF09;" class="headerlink" title="&#x5982;&#x679C;&#x6362;&#x4E86;&#x7535;&#x8111;&#xFF1A;&#xFF08;&#x4E0D;&#x9700;&#x8981;hexo init&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;&#x4F1A;&#x8986;&#x76D6;&#x6389;&#x4E4B;&#x524D;&#x7684;&#x7AD9;&#x70B9;&#x914D;&#x7F6E;&#xFF0C;&#x6269;&#x5C55;&#x5305;&#xFF09;"></a>&#x5982;&#x679C;&#x6362;&#x4E86;&#x7535;&#x8111;&#xFF1A;&#xFF08;&#x4E0D;&#x9700;&#x8981;hexo init&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;&#x4F1A;&#x8986;&#x76D6;&#x6389;&#x4E4B;&#x524D;&#x7684;&#x7AD9;&#x70B9;&#x914D;&#x7F6E;&#xFF0C;&#x6269;&#x5C55;&#x5305;&#xFF09;</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-fastlane-进行-iOS-App自动打包"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;-fastlane-&#x8FDB;&#x884C;-iOS-App&#x81EA;&#x52A8;&#x6253;&#x5305;" class="headerlink" title="&#x4F7F;&#x7528; fastlane &#x8FDB;&#x884C; iOS App&#x81EA;&#x52A8;&#x6253;&#x5305;"></a>&#x4F7F;&#x7528; fastlane &#x8FDB;&#x884C; iOS App&#x81EA;&#x52A8;&#x6253;&#x5305;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.0.1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-fastlane"><span class="nav-number">1.0.2.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;-fastlane" class="headerlink" title="&#x4F7F;&#x7528; fastlane"></a>&#x4F7F;&#x7528; fastlane</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先安装fastlane"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text"><a href="#&#x9996;&#x5148;&#x5B89;&#x88C5;fastlane" class="headerlink" title="&#x9996;&#x5148;&#x5B89;&#x88C5;fastlane"></a>&#x9996;&#x5148;&#x5B89;&#x88C5;fastlane</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#加载-env文件里的环境变量，使用-dotenv-——-A-Ruby-gem-to-load-environment-variables-from-env"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text"><a href="#&#x52A0;&#x8F7D;-env&#x6587;&#x4EF6;&#x91CC;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x4F7F;&#x7528;-dotenv-&#x2014;&#x2014;-A-Ruby-gem-to-load-environment-variables-from-env" class="headerlink" title="&#x52A0;&#x8F7D;.env&#x6587;&#x4EF6;&#x91CC;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x4F7F;&#x7528; dotenv &#x2014;&#x2014; A Ruby gem to load environment variables from .env."></a>&#x52A0;&#x8F7D;.env&#x6587;&#x4EF6;&#x91CC;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x4F7F;&#x7528; <a href="https://github.com/bkeepers/dotenv" target="_blank" rel="noopener">dotenv</a> &#x2014;&#x2014; A Ruby gem to load environment variables from <code>.env</code>.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-update-info-plist"><span class="nav-number">1.0.2.0.3.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;-update-info-plist" class="headerlink" title="&#x4F7F;&#x7528; update_info_plist"></a>&#x4F7F;&#x7528; update_info_plist</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#produce"><span class="nav-number">1.0.2.0.4.</span> <span class="nav-text"><a href="#produce" class="headerlink" title="produce"></a>produce</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#match"><span class="nav-number">1.0.2.0.5.</span> <span class="nav-text"><a href="#match" class="headerlink" title="match"></a>match</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gym"><span class="nav-number">1.0.2.0.6.</span> <span class="nav-text"><a href="#gym" class="headerlink" title="gym"></a>gym</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins-fastlane"><span class="nav-number">1.0.3.</span> <span class="nav-text"><a href="#Jenkins-fastlane" class="headerlink" title="Jenkins+fastlane"></a>Jenkins+fastlane</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -744,9 +823,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://guawaji.github.io/2017/12/04/2017-12-04-use-hexo/';
-          this.page.identifier = '2017/12/04/2017-12-04-use-hexo/';
-          this.page.title = 'Hexo搭建博客';
+          this.page.url = 'https://guawaji.github.io/2018/06/27/use-fastlane/';
+          this.page.identifier = '2018/06/27/use-fastlane/';
+          this.page.title = '使用 fastlane 进行 iOS App自动打包';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://guawaji.disqus.com/embed.js';

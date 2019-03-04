@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="guawaji" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="RxSwfit+MVVM简单实践一个简单的活动列表展示页面12345678910111213extension Reactive where Base: LoadingHUD &amp;#123;        /// Bindable sink for `startAnimating()`, `stopAnimating()` methods.    var isAnimating: Binder&amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxSwfit+MVVM简单实践">
+<meta property="og:url" content="https://guawaji.github.io/2017/10/07/RxSwfit+MVVM简单实践/index.html">
+<meta property="og:site_name" content="guawaji">
+<meta property="og:description" content="RxSwfit+MVVM简单实践一个简单的活动列表展示页面12345678910111213extension Reactive where Base: LoadingHUD &amp;#123;        /// Bindable sink for `startAnimating()`, `stopAnimating()` methods.    var isAnimating: Binder&amp;lt">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-04T03:30:52.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxSwfit+MVVM简单实践">
+<meta name="twitter:description" content="RxSwfit+MVVM简单实践一个简单的活动列表展示页面12345678910111213extension Reactive where Base: LoadingHUD &amp;#123;        /// Bindable sink for `startAnimating()`, `stopAnimating()` methods.    var isAnimating: Binder&amp;lt">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guawaji.github.io/2017/10/07/RxSwfit+MVVM简单实践/"/>
+
+
+
+
+
+  <title>RxSwfit+MVVM简单实践 | guawaji</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">guawaji</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://guawaji.github.io/2017/10/07/RxSwfit+MVVM简单实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guawaji">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/guawaji.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guawaji">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RxSwfit+MVVM简单实践</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-07T20:05:20+08:00">
+                2017-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/07/RxSwfit+MVVM简单实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/07/RxSwfit+MVVM简单实践/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="RxSwfit-MVVM简单实践"><a href="#RxSwfit-MVVM简单实践" class="headerlink" title="RxSwfit+MVVM简单实践"></a>RxSwfit+MVVM简单实践</h1><h3 id="一个简单的活动列表展示页面"><a href="#一个简单的活动列表展示页面" class="headerlink" title="一个简单的活动列表展示页面"></a>一个简单的活动列表展示页面</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Reactive</span> <span class="title">where</span> <span class="title">Base</span>: <span class="title">LoadingHUD</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Bindable sink for `startAnimating()`, `stopAnimating()` methods.</span></span><br><span class="line">    <span class="keyword">var</span> isAnimating: <span class="type">Binder</span>&lt;<span class="type">Bool</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Binder</span>(<span class="keyword">self</span>.base) &#123; hud, active <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> active &#123;</span><br><span class="line">                hud.startAnimating()</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                hud.stopAnimating()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bindData</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 加载状态指示器</span></span><br><span class="line">        <span class="keyword">let</span> activityIndicator = <span class="type">ActivityIndicator</span>()</span><br><span class="line">        <span class="comment">// 将网络请求取得活动列表数据转化为可观察的序列，之后驱动 tableView 使用</span></span><br><span class="line">        <span class="comment">// 当观察者对 BehaviorSubject 进行订阅时，它会将源 Observable 中最新的元素发送出来（如果不存在最新的元素，就发出默认元素）。然后将随后产生的元素发送出来。</span></span><br><span class="line">        <span class="keyword">let</span> activityResponseDriver = <span class="type">BehaviorSubject</span>(value: ())</span><br><span class="line">            .flatMapLatest &#123;</span><br><span class="line">                <span class="type">Networking</span></span><br><span class="line">                    .rx.requestObject(<span class="type">ActivityResponse</span>.<span class="keyword">self</span>, url: <span class="type">URL</span>.notifyList)</span><br><span class="line">                    .trackActivity(activityIndicator) <span class="comment">// 追踪加载状态</span></span><br><span class="line">            &#125;</span><br><span class="line">            .asDriver(onErrorJustReturn: <span class="type">ActivityResponse</span>())</span><br><span class="line">        <span class="comment">// 驱动HUD</span></span><br><span class="line">        activityIndicator.asDriver().drive(hud.rx.isAnimating).disposed(by: disposeBag)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// tableView 数据源</span></span><br><span class="line">        <span class="keyword">let</span> dataSource = <span class="type">RxTableViewSectionedReloadDataSource</span>&lt;<span class="type">SectionModel</span>&lt;<span class="type">String</span>, <span class="type">Activity</span>&gt;&gt;(</span><br><span class="line">            configureCell: &#123; (<span class="number">_</span>, tv, indexPath, element) <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">let</span> cell = tv.dequeueReusableCell(withIdentifier: <span class="type">ActivityListCell</span>.classIdentifier, <span class="keyword">for</span>: indexPath) <span class="keyword">as</span>! <span class="type">ActivityListCell</span></span><br><span class="line">                cell.activity = element</span><br><span class="line">                <span class="keyword">return</span> cell</span><br><span class="line">            &#125;,</span><br><span class="line">            titleForHeaderInSection: &#123; dataSource, sectionIndex <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">return</span> dataSource[sectionIndex].model</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">        <span class="comment">// 活动列表数据通过 map 转化为一个section数据 再驱动tableView</span></span><br><span class="line">        activityResponseDriver</span><br><span class="line">            .<span class="built_in">map</span> &#123; [<span class="type">SectionModel</span>(model: kActivityNotificationStringLocalized, items: $<span class="number">0</span>.data)] &#125;</span><br><span class="line">            .drive(tableView.rx.items(dataSource: dataSource))</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">        <span class="comment">// 活动列表数据 驱动统计view的展示</span></span><br><span class="line">        activityResponseDriver</span><br><span class="line">            .<span class="built_in">map</span> &#123; $<span class="number">0</span>.informationNum &#125;</span><br><span class="line">            .drive(onNext: &#123; [<span class="keyword">unowned</span> <span class="keyword">self</span>] (informationNum) <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">self</span>.informationNumView.isHidden = informationNum == <span class="number">0</span></span><br><span class="line">                <span class="keyword">self</span>.informationNumView.setTitle(<span class="string">"<span class="subst">\(informationNum)</span>"</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">            &#125;)</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">        </span><br><span class="line">        tableView.rx.modelSelected(<span class="type">Activity</span>.<span class="keyword">self</span>)</span><br><span class="line">            .subscribe(onNext: &#123; [<span class="keyword">unowned</span> <span class="keyword">self</span>] (activity) <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">if</span> #available(iOS <span class="number">9.0</span>, *) &#123;</span><br><span class="line">                    <span class="keyword">let</span> vc = <span class="type">SFSafariViewController</span>(url: url)</span><br><span class="line">                    vc.title = kActivityNotificationStringLocalized</span><br><span class="line">                    <span class="keyword">self</span>.navigationController?.pushViewController(vc, animated: <span class="literal">true</span>)</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">let</span> vc = <span class="type">ActivityWebViewController</span>()</span><br><span class="line">                    vc.title = kActivityNotificationStringLocalized</span><br><span class="line">                    vc.url = url</span><br><span class="line">                    <span class="keyword">self</span>.navigationController?.pushViewController(vc, animated: <span class="literal">true</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一个订单信息列表页面（DataPageable是一个提供分页功能的序列输出功能类）"><a href="#一个订单信息列表页面（DataPageable是一个提供分页功能的序列输出功能类）" class="headerlink" title="一个订单信息列表页面（DataPageable是一个提供分页功能的序列输出功能类）"></a>一个订单信息列表页面（DataPageable是一个提供分页功能的序列输出功能类）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bindData</span><span class="params">()</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> pageVariable = <span class="type">Variable</span>(<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        tableView.mj_header = <span class="type">MJRefreshNormalHeader</span>(refreshingBlock: &#123;</span><br><span class="line">            pageVariable.value = <span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">        tableView.mj_footer = <span class="type">MJRefreshBackNormalFooter</span>(refreshingBlock: &#123;</span><br><span class="line">            pageVariable.value += <span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> viewModel = <span class="type">OrderInfoListViewModel</span>(pageVariable: pageVariable)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// hud</span></span><br><span class="line">        viewModel.hudDriver</span><br><span class="line">            .drive(hud.rx.isAnimating)</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// tableView dataSource</span></span><br><span class="line">        viewModel.orderInfoListDriver</span><br><span class="line">            .drive(tableView.rx.items(cellIdentifier: <span class="type">OrderInfoCell</span>.classIdentifier, cellType: <span class="type">OrderInfoCell</span>.<span class="keyword">self</span>)) &#123; (row, orderInfo, cell) <span class="keyword">in</span></span><br><span class="line">                cell.orderInfo = orderInfo</span><br><span class="line">            &#125;</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// endRefresh</span></span><br><span class="line">        viewModel.endHeaderRefreshingDriver</span><br><span class="line">            .drive(tableView.rx.endHeaderRefreshing)</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">        viewModel.endFooterRefreshingDriver</span><br><span class="line">            .drive(tableView.rx.endFooterRefreshing)</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// some UI</span></span><br><span class="line">        viewModel.orderInfoListDriver</span><br><span class="line">            .skip(<span class="number">1</span>) <span class="comment">// skip 跳过第一个元素，emptyView.isHidden</span></span><br><span class="line">            .<span class="built_in">map</span> &#123; $<span class="number">0</span>.<span class="built_in">count</span> &gt; <span class="number">0</span> &#125;</span><br><span class="line">            .drive(emptyDataView.rx.isHidden)</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// tableView Delegate</span></span><br><span class="line">        tableView.rx</span><br><span class="line">            .modelSelected(<span class="type">OrderInfo</span>.<span class="keyword">self</span>)</span><br><span class="line">            .subscribe(onNext:  &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] orderInfo <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">let</span> vc = <span class="type">OrderDetailController</span>()</span><br><span class="line">                vc.tradeNo = orderInfo.tradeNo</span><br><span class="line">                <span class="keyword">self</span>?.navigationController?.pushViewController(vc, animated: <span class="literal">true</span>)</span><br><span class="line">            &#125;)</span><br><span class="line">            .disposed(by: disposeBag)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OrderInfoListViewModel</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// outputs</span></span><br><span class="line">    <span class="keyword">let</span> hudDriver: <span class="type">Driver</span>&lt;<span class="type">Bool</span>&gt;</span><br><span class="line">    <span class="keyword">let</span> orderInfoListDriver: <span class="type">Driver</span>&lt;[<span class="type">OrderInfo</span>]&gt;</span><br><span class="line">    <span class="keyword">let</span> endHeaderRefreshingDriver: <span class="type">Driver</span>&lt;<span class="type">Void</span>&gt;</span><br><span class="line">    <span class="keyword">let</span> endFooterRefreshingDriver: <span class="type">Driver</span>&lt;<span class="type">Int</span>&gt;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(pageVariable: <span class="type">Variable</span>&lt;<span class="type">Int</span>&gt;) &#123;</span><br><span class="line">        <span class="comment">// 元组，包含网络请求状态序列、数据列表序列，刷新信号</span></span><br><span class="line">        <span class="keyword">let</span> driversTuple = <span class="type">DataPageable</span>.getDriversTuple(pageVariable: pageVariable, url: <span class="type">URL</span>.consumeRecordQuery, param: [<span class="string">"mobile"</span>: <span class="type">UserManager</span>.shared.currentUser!.mobile], type: <span class="type">OrderInfo</span>.<span class="keyword">self</span>, path: <span class="string">"orderInfo"</span>)</span><br><span class="line">        <span class="keyword">let</span> taskStatusDriver = driversTuple.taskStatusDriver</span><br><span class="line">        orderInfoListDriver = driversTuple.dataListDriver</span><br><span class="line">        endHeaderRefreshingDriver = driversTuple.endHeaderRefreshingDriver</span><br><span class="line">        endFooterRefreshingDriver = driversTuple.endFooterRefreshingDriver</span><br><span class="line">        </span><br><span class="line">        hudDriver = <span class="type">Driver</span></span><br><span class="line">            .combineLatest(taskStatusDriver, orderInfoListDriver) &#123; $<span class="number">0</span>.isExecuting &amp;&amp; $<span class="number">1</span>.isEmpty &#125;</span><br><span class="line">            .distinctUntilChanged()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="历程"><a href="#历程" class="headerlink" title="历程"></a>历程</h3><p>学习 RxSwift 是个非常有趣的过程，我最开始是通过 <a href="https://beeth0ven.github.io/RxSwift-Chinese-Documentation/" target="_blank" rel="noopener">中文文档</a> + 官方Demo来学习的。看到不是特别能理解的内容时（比如各种创建序列的方式、Subject、Operator），跟着敲一下代码，运行一下，感觉会比较容易记忆和理解。然后把现有的工程一点点MVVM化，遇到问题就回头去看文档和Demo，基本就能把一些简单的业务逻辑搞定了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/27/use-fastlane/" rel="prev" title="使用 fastlane 进行 iOS App自动打包">
+                使用 fastlane 进行 iOS App自动打包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/guawaji.png"
+                alt="guawaji" />
+            
+              <p class="site-author-name" itemprop="name">guawaji</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/guawaji" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1003990034@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RxSwfit-MVVM简单实践"><span class="nav-number">1.</span> <span class="nav-text"><a href="#RxSwfit-MVVM&#x7B80;&#x5355;&#x5B9E;&#x8DF5;" class="headerlink" title="RxSwfit+MVVM&#x7B80;&#x5355;&#x5B9E;&#x8DF5;"></a>RxSwfit+MVVM&#x7B80;&#x5355;&#x5B9E;&#x8DF5;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的活动列表展示页面"><span class="nav-number">1.0.1.</span> <span class="nav-text"><a href="#&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6D3B;&#x52A8;&#x5217;&#x8868;&#x5C55;&#x793A;&#x9875;&#x9762;" class="headerlink" title="&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6D3B;&#x52A8;&#x5217;&#x8868;&#x5C55;&#x793A;&#x9875;&#x9762;"></a>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6D3B;&#x52A8;&#x5217;&#x8868;&#x5C55;&#x793A;&#x9875;&#x9762;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个订单信息列表页面（DataPageable是一个提供分页功能的序列输出功能类）"><span class="nav-number">1.0.2.</span> <span class="nav-text"><a href="#&#x4E00;&#x4E2A;&#x8BA2;&#x5355;&#x4FE1;&#x606F;&#x5217;&#x8868;&#x9875;&#x9762;&#xFF08;DataPageable&#x662F;&#x4E00;&#x4E2A;&#x63D0;&#x4F9B;&#x5206;&#x9875;&#x529F;&#x80FD;&#x7684;&#x5E8F;&#x5217;&#x8F93;&#x51FA;&#x529F;&#x80FD;&#x7C7B;&#xFF09;" class="headerlink" title="&#x4E00;&#x4E2A;&#x8BA2;&#x5355;&#x4FE1;&#x606F;&#x5217;&#x8868;&#x9875;&#x9762;&#xFF08;DataPageable&#x662F;&#x4E00;&#x4E2A;&#x63D0;&#x4F9B;&#x5206;&#x9875;&#x529F;&#x80FD;&#x7684;&#x5E8F;&#x5217;&#x8F93;&#x51FA;&#x529F;&#x80FD;&#x7C7B;&#xFF09;"></a>&#x4E00;&#x4E2A;&#x8BA2;&#x5355;&#x4FE1;&#x606F;&#x5217;&#x8868;&#x9875;&#x9762;&#xFF08;DataPageable&#x662F;&#x4E00;&#x4E2A;&#x63D0;&#x4F9B;&#x5206;&#x9875;&#x529F;&#x80FD;&#x7684;&#x5E8F;&#x5217;&#x8F93;&#x51FA;&#x529F;&#x80FD;&#x7C7B;&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#历程"><span class="nav-number">1.0.3.</span> <span class="nav-text"><a href="#&#x5386;&#x7A0B;" class="headerlink" title="&#x5386;&#x7A0B;"></a>&#x5386;&#x7A0B;</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=35437870&auto=1&height=66"></iframe>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guawaji</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://guawaji.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guawaji.github.io/2017/10/07/RxSwfit+MVVM简单实践/';
+          this.page.identifier = '2017/10/07/RxSwfit+MVVM简单实践/';
+          this.page.title = 'RxSwfit+MVVM简单实践';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://guawaji.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
